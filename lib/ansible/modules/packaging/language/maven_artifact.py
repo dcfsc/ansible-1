@@ -44,7 +44,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: maven_artifact
-short_description: Downloads an Artifact from a Maven Repository
+short_description: Downloads an artifact from a maven repository
 version_added: "2.0"
 description:
     - Downloads an artifact from a maven repository given the maven coordinates provided to the module. Can retrieve
@@ -58,7 +58,7 @@ requirements:
 options:
     group_id:
         description:
-            - The Maven groupId coordinate.
+            - The maven groupId coordinate.
         required: true
     artifact_id:
         description:
@@ -83,7 +83,7 @@ options:
         version_added: "2.3"
         aliases: [ repository_url, repository ]
         description:
-            - The URL of the Maven Repository to download from.
+            - The URL of the maven Repository to download from.
             - Use s3://... if the repository is hosted on Amazon S3, added in version 2.2.
         required: false
         default: http://repo1.maven.org/maven2
@@ -91,14 +91,14 @@ options:
         version_added: "2.3"
         aliases: [ username, user, uname, aws_secret_key ]
         description:
-            - The username to authenticate as to the Maven Repository, Use AWS secret key of the repository is hosted on S3.
+            - The username to authenticate as to the maven Repository, Use AWS secret key of the repository is hosted on S3.
         required: false
         default: null
     url_password:
         version_added: "2.3"
         aliases: [ password, pwd, passwd, aws_secret_access_key ]
         description:
-            - The password to authenticate with to the Maven Repository. Use AWS secret access key of the repository is hosted on S3.
+            - The password to authenticate with to the maven Repository. Use AWS secret access key of the repository is hosted on S3.
         required: false
         default: null
     dest:
