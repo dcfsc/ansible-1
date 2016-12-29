@@ -58,7 +58,7 @@ requirements:
 options:
     group_id:
         description:
-            - The Maven groupId coordinate
+            - The Maven groupId coordinate.
         required: true
     artifact_id:
         description:
@@ -71,31 +71,31 @@ options:
         default: latest
     classifier:
         description:
-            - The maven classifier coordinate
+            - The maven classifier coordinate.
         required: false
         default: null
     extension:
         description:
-            - The maven type/extension coordinate
+            - The maven type/extension coordinate.
         required: false
         default: jar
     url_repository:
-        version_added: 2.3
+        version_added: "2.3"
         aliases: [ repository_url, repository ]
         description:
-            - The URL of the Maven Repository to download from
+            - The URL of the Maven Repository to download from.
             - Use s3://... if the repository is hosted on Amazon S3, added in version 2.2.
         required: false
         default: http://repo1.maven.org/maven2
     url_username:
-        version_added: 2.3
+        version_added: "2.3"
         aliases: [ username, user, uname, aws_secret_key ]
         description:
             - The username to authenticate as to the Maven Repository, Use AWS secret key of the repository is hosted on S3.
         required: false
         default: null
     url_password:
-        version_added: 2.3
+        version_added: "2.3"
         aliases: [ password, pwd, passwd, aws_secret_access_key ]
         description:
             - The password to authenticate with to the Maven Repository. Use AWS secret access key of the repository is hosted on S3.
@@ -114,10 +114,10 @@ options:
         choices: [ present, absent ]
     timeout:
         description:
-            - Specifies a timeout in seconds for the connection attempt
+            - Specifies a timeout in seconds for the connection attempt.
         required: false
         default: 10
-        version_added: 2.3
+        version_added: "2.3"
     validate_certs:
         description:
             - If C(no), SSL certificates will not be validated. This should only be set to C(no) when no other option exists.
@@ -126,7 +126,7 @@ options:
         choices: ['yes', 'no']
         version_added: "1.9.3"
     ignore_checksum:
-        version_added: 2.3
+        version_added: "2.3"
         description:
             - If C(yes), the checksum verification after downloading will be ignored. May result in corrupt artifacts if the network connection fails, but enables downloading artifacts which don't have a remote checksum calculated.
         required: false
@@ -136,16 +136,34 @@ options:
 
 EXAMPLES = '''
 # Download the latest version of the JUnit framework artifact from Maven Central
-- maven_artifact: group_id=junit artifact_id=junit dest=/tmp/junit-latest.jar
+- maven_artifact:
+    group_id=junit
+    artifact_id=junit
+    dest=/tmp/junit-latest.jar
 
 # Download JUnit 4.11 from Maven Central
-- maven_artifact: group_id=junit artifact_id=junit version=4.11 dest=/tmp/junit-4.11.jar
+- maven_artifact:
+    group_id=junit
+    artifact_id=junit
+    version=4.11
+    dest=/tmp/junit-4.11.jar
 
 # Download an artifact from a private repository requiring authentication
-- maven_artifact: group_id=com.company artifact_id=library-name repository_url=https://repo.company.com/maven username=user password=pass dest=/tmp/library-name-latest.jar
+- maven_artifact:
+    group_id=com.company
+    artifact_id=library-name
+    repository_url=https://repo.company.com/maven
+    username=user
+    password=pass
+    dest=/tmp/library-name-latest.jar
 
 # Download a WAR File to the Tomcat webapps directory to be deployed
-- maven_artifact: group_id=com.company artifact_id=web-app extension=war repository_url=https://repo.company.com/maven dest=/var/lib/tomcat7/webapps/web-app.war
+- maven_artifact:
+    group_id=com.company
+    artifact_id=web-app
+    extension=war
+    repository_url=https://repo.company.com/maven
+    dest=/var/lib/tomcat7/webapps/web-app.war
 '''
 
 class Artifact(object):
