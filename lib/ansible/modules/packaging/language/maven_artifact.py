@@ -164,6 +164,14 @@ EXAMPLES = '''
     extension: war
     repository_url: https://repo.company.com/maven
     dest: /var/lib/tomcat7/webapps/web-app.war
+
+# Copy a WAR file from the local maven repository to the Tomcat webapps directory to be deployed
+- maven_artifact:
+    group_id: com.company
+    artifact_id: web-app
+    extension: war
+    repository_url: file://home/jenkins/.m2/repository
+    dest: /var/lib/tomcat7/webapps/web-app.war
 '''
 
 class Artifact(object):
